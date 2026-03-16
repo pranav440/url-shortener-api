@@ -1,44 +1,96 @@
-# URL SHORTENER USING SPRING BOOT
-A URL shortener made using Spring Boot. This project provides REST APIs for a URL shortener tool that converts 
-long URLs to tiny strings similar to tinylink or bit.ly but this project is a bit simpler.
+# URL Shortener API
 
+A backend application built using **Spring Boot** that converts long URLs into short and shareable links.  
+When a user accesses the shortened URL, the service redirects them to the original URL.
 
-`Make sure java version in your machine is 20 or above.`
+This project demonstrates concepts such as **REST API development, URL mapping, database storage, and HTTP redirection.**
 
+---
 
-## Technologies used
-* Java 20
-* Spring Boot 3.2.0
-* H2 Database
-* Hibernate
-* Maven
-* REST API
-* Mockito
-* JUnit5
+## Tech Stack
 
-## How to compile and run application
-    git clone https://github.com/AbdulGaniShaikh/url-shortener-spring-boot.git
-    mvn package 
-    mvn spring-boot:run
+- Java
+- Spring Boot
+- Spring Data JPA
+- H2 Database
+- Maven
+- REST APIs
+- JUnit
 
-## REST APIs
+---
 
-## generate a new tiny link
+## Features
 
-`POST /shorten?url={fullURL}`
+- Generate short URLs from long URLs
+- Redirect users to the original URL
+- Store URL mappings in database
+- Simple REST API architecture
+- Lightweight in-memory database for development
 
-### Params
-| name | type   | nullable |
-|------|--------|----------|
-| url  | string | false    |
+---
 
-### Response
-`status = 200 OK`
+## API Endpoints
 
-    {
-        "shortenedURL": string,
-        "fullURL": string,
-        "date": date
-    }
+### Create Short URL
 
-`note shortenedURL only contains the later part you need to add that is localhost:8080/`
+POST /shorten?url={fullURL}
+
+Example
+
+POST /shorten?url=https://example.com
+
+Response
+
+{
+  "shortenedURL": "abc123",
+  "fullURL": "https://example.com",
+  "createdAt": "2026-03-16"
+}
+
+---
+
+### Redirect to Original URL
+
+GET /{shortCode}
+
+Example
+
+GET /abc123
+
+The service redirects to the stored original URL.
+
+---
+
+## How to Run
+
+Clone the repository
+
+git clone https://github.com/yourusername/url-shortener-api.git
+
+Navigate to project directory
+
+cd url-shortener-api
+
+Run the application
+
+mvn spring-boot:run
+
+Server runs on
+
+http://localhost:8080
+
+---
+
+## Future Improvements
+
+- Custom short URLs
+- Click analytics
+- User authentication
+- URL expiration
+- Redis caching
+
+---
+
+## Author
+
+Pranav Ganorkar
