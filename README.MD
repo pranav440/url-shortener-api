@@ -30,18 +30,16 @@ This project demonstrates backend development concepts such as **REST APIs, data
 
 ## 📂 Project Structure
 
-
 src
-├── controller
-│ URLController.java
-├── service
-│ URLService.java
-├── repository
-│ URLRepository.java
-├── model
-│ URL.java
-└── UrlShortenerApplication.java
-
+ ├── controller
+ │      URLController.java
+ ├── service
+ │      URLService.java
+ ├── repository
+ │      URLRepository.java
+ ├── model
+ │      URL.java
+ └── UrlShortenerApplication.java
 
 ---
 
@@ -53,21 +51,15 @@ POST /shorten
 
 Example Request
 
-
 {
-"url": "https://example.com
-"
+  "url": "https://example.com"
 }
-
 
 Example Response
 
-
 {
-"shortUrl": "http://localhost:8080/abc123
-"
+  "shortUrl": "http://localhost:8080/abc123"
 }
-
 
 ---
 
@@ -77,9 +69,7 @@ GET /{shortCode}
 
 Example
 
-
 GET /abc123
-
 
 The service redirects to the original URL.
 
@@ -96,13 +86,12 @@ Returns number of clicks and metadata.
 ## 🗄 Database Schema
 
 URL_TABLE
-
+---------
 id
 original_url
 short_code
 click_count
 created_at
-
 
 ---
 
@@ -110,27 +99,19 @@ created_at
 
 1. Clone the repository
 
-
 git clone https://github.com/yourusername/url-shortener-api.git
-
 
 2. Navigate to project directory
 
-
 cd url-shortener-api
-
 
 3. Run the application
 
-
 mvn spring-boot:run
-
 
 4. Open in browser
 
-
 http://localhost:8080
-
 
 ---
 
