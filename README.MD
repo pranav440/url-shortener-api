@@ -1,51 +1,73 @@
 # URL Shortener API
 
-A backend application built using **Spring Boot** that converts long URLs into short and shareable links.  
-When a user accesses the shortened URL, the service redirects them to the original URL.
+A backend service built using **Java and Spring Boot** that converts long URLs into short, shareable links.  
+When a user accesses the short link, the service redirects them to the original URL.
 
-This project demonstrates concepts such as **REST API development, URL mapping, database storage, and HTTP redirection.**
-
----
-
-## Tech Stack
-
-- Java
-- Spring Boot
-- Spring Data JPA
-- H2 Database
-- Maven
-- REST APIs
-- JUnit
+This project demonstrates backend development concepts such as **REST APIs, database design, URL mapping, and HTTP redirection**.
 
 ---
 
-## Features
+## 🚀 Features
 
 - Generate short URLs from long URLs
 - Redirect users to the original URL
 - Store URL mappings in database
-- Simple REST API architecture
-- Lightweight in-memory database for development
+- Track number of clicks on each shortened URL
+- RESTful API design
 
 ---
 
-## API Endpoints
+## 🛠 Tech Stack
+
+- Java
+- Spring Boot
+- Spring Data JPA
+- MySQL / H2 Database
+- Maven
+- REST APIs
+
+---
+
+## 📂 Project Structure
+
+
+src
+├── controller
+│ URLController.java
+├── service
+│ URLService.java
+├── repository
+│ URLRepository.java
+├── model
+│ URL.java
+└── UrlShortenerApplication.java
+
+
+---
+
+## 📌 API Endpoints
 
 ### Create Short URL
 
-POST /shorten?url={fullURL}
+POST /shorten
 
-Example
+Example Request
 
-POST /shorten?url=https://example.com
-
-Response
 
 {
-  "shortenedURL": "abc123",
-  "fullURL": "https://example.com",
-  "createdAt": "2026-03-16"
+"url": "https://example.com
+"
 }
+
+
+Example Response
+
+
+{
+"shortUrl": "http://localhost:8080/abc123
+"
+}
+
 
 ---
 
@@ -55,42 +77,83 @@ GET /{shortCode}
 
 Example
 
+
 GET /abc123
 
-The service redirects to the stored original URL.
+
+The service redirects to the original URL.
 
 ---
 
-## How to Run
+### Get URL Analytics
 
-Clone the repository
+GET /analytics/{shortCode}
+
+Returns number of clicks and metadata.
+
+---
+
+## 🗄 Database Schema
+
+URL_TABLE
+
+id
+original_url
+short_code
+click_count
+created_at
+
+
+---
+
+## ▶️ How to Run the Project
+
+1. Clone the repository
+
 
 git clone https://github.com/yourusername/url-shortener-api.git
 
-Navigate to project directory
+
+2. Navigate to project directory
+
 
 cd url-shortener-api
 
-Run the application
+
+3. Run the application
+
 
 mvn spring-boot:run
 
-Server runs on
+
+4. Open in browser
+
 
 http://localhost:8080
 
+
 ---
 
-## Future Improvements
+## 💡 Learning Outcomes
 
+- Building REST APIs using Spring Boot
+- Designing database schemas
+- Implementing URL mapping systems
+- Understanding HTTP redirects
+- Basic backend system design
+
+---
+
+## 📈 Future Improvements
+
+- Add user authentication
 - Custom short URLs
-- Click analytics
-- User authentication
-- URL expiration
+- Expiration for URLs
+- Rate limiting
 - Redis caching
 
 ---
 
-## Author
+## 👨‍💻 Author
 
 Pranav Ganorkar
